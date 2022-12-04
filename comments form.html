@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="container">
+<div> Hi! <hr>
+    How are you? <hr>
+</div>
+<br>
+<form id="form">
+    <lable for="name">Name</lable></br>
+    <span id="name"></span>
+    <input 
+    type="text"
+    name="name"
+    placeholder="Name"
+    id="name"
+    class="name"/>
+    </div>
+<div> Upload your picture</div>
+<div><label for="url"><i>Insert URL of the photo</i></label></br>
+    <div class="img" id="img"></div>
+<input 
+type="url"
+placeholder="URL"
+required
+id="url"/>
+</div>
+<div><label for="comment">Your comment</label></div>
+<div><textarea placeholder="Add you comment" id="comment"></textarea></div>
+<button type="button" onclick="sendMessage();">Send</button>
+</div>
+</form>
+<script>
+document.addEventListener("DOMContentLoaded",function(event){
+let name=localStorage.getItem('name');
+        if(name!=null){
+            document.getElementById("name").value=name;
+        }
+    })
+
+function sendMessage (name,comment){
+document.getElementById("chat").innerHTML+=`<span class='name'>${name}:</span><span>${comment}</span><br>`;
+}
+
+function checkMessage(){
+    let name=document.getElementById("name").value;
+    let comment=document.getElementById("comment").value;
+
+    if(localStorage.getItem("name")==null){
+        localStorage.getItem("name", name);
+    }
+    function sendMessage (name,comment);
+}
+
+</script>
+</body>
+</html>
